@@ -1,0 +1,17 @@
+services:
+  terraria:
+    image: ghcr.io/bfcoder/terraria:latest
+    container_name: terraria
+    restart: unless-stopped
+    stop_grace_period: 60s
+    ports:
+      - "7777:7777"
+    environment:
+      WORLD_NAME: world
+      WORLD_SIZE: 2       # 1=small 2=medium 3=large
+      DIFFICULTY: 0       # 0=classic 1=expert 2=master 3=journey
+      MAX_PLAYERS: 8
+      PASSWORD: ""
+      MOTD: "Welcome!"
+    volumes:
+      - ./data:/data
